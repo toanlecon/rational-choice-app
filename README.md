@@ -13,7 +13,7 @@ This tool allows users to input a payoff matrix, select a candidate action, and 
 - **Three Domination Concepts**:
   - **Strict**: Strictly dominated vs. Best response.
   - **Weak**: Weakly dominated vs. Cautious response (full support).
-  - **Very Weak**: Very weakly dominated vs. Unique best response.
+  - **Redundant**: Very weakly dominated vs. Unique best response.
 - **Real-time Solver**: Uses Linear Programming (`scipy.optimize`) to solve primal and dual problems instantly.
 - **Visual Analytics**: Matplotlib charts showing the dominating strategy or the rationalizing belief.
 
