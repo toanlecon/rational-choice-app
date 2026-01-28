@@ -13,7 +13,7 @@ This tool allows users to input a payoff matrix, select a candidate action, and 
 - **Three Domination Concepts**:
   - **Strict**: Strictly dominated vs. Best response.
   - **Weak**: Weakly dominated vs. Cautious response (full support).
-  - **Redundant**: Very weakly dominated vs. Unique best response.
+  - **Redundant**: Redundant vs. Unique best response.
 - **Real-time Solver**: Uses Linear Programming (`scipy.optimize`) to solve primal and dual problems instantly.
 - **Visual Analytics**: Matplotlib charts showing the dominating strategy or the rationalizing belief.
 
@@ -25,5 +25,5 @@ This tool allows users to input a payoff matrix, select a candidate action, and 
 ### Install from Source
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/rational-choice-app.git](https://github.com/YOUR_USERNAME/rational-choice-app.git)
+   git clone [https://github.com/toanlecon/rational-choice-app.git](https://github.com/toanlecon/rational-choice-app.git)
    cd rational-choice-app
