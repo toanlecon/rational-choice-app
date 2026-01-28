@@ -22,8 +22,25 @@ This tool allows users to input a payoff matrix, select a candidate action, and 
 ### Prerequisites
 - Python 3.8+
 
-### Install from Source
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/toanlecon/rational-choice-app.git](https://github.com/toanlecon/rational-choice-app.git)
-   cd rational-choice-app
+### Step-by-Step Installation (Mac/Linux)
+
+Run the following commands in your terminal to set up the environment and run the app:
+
+```bash
+# 1. Download the code
+git clone [https://github.com/toanlecon/rational-choice-app.git](https://github.com/toanlecon/rational-choice-app.git)
+
+# 2. Go into the folder
+cd rational-choice-app
+
+# 3. Create a virtual environment (keeps your system clean)
+python3 -m venv venv
+
+# 4. Activate the environment
+source venv/bin/activate
+
+# 5. Install the required libraries (numpy, scipy, matplotlib)
+pip install -r requirements.txt
+
+# 6. Run the app
+python3 -m rational_choice_app.main
