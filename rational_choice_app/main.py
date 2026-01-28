@@ -76,7 +76,7 @@ class GameTheoryApp:
         type_frame.pack(fill="x")
         ttk.Label(type_frame, text="Domination Type", style="Bold.TLabel").pack(anchor="w")
         
-        for val, txt in [("Strict", "Strict Domination"), ("Weak", "Weak Domination"), ("Very Weak", "Very Weak Domination")]:
+        for val, txt in [("Strict", "Strict Domination"), ("Weak", "Weak Domination"), ("Redundant", "Redundancy")]:
             tk.Radiobutton(type_frame, text=txt, variable=self.domination_type, value=val, 
                            bg="white", command=self.run_analysis).pack(anchor="w")
 
@@ -171,7 +171,7 @@ class GameTheoryApp:
         
         A_ub, bounds, A_eq = [], [], []
         
-        if d_type == "Strict" or d_type == "Very Weak":
+        if d_type == "Strict" or d_type == "Redundant":
             # eps - Sum(p*M) <= -u_target
             for j in range(n_cols):
                 row = list(-M[:, j]) + [1]
@@ -180,7 +180,7 @@ class GameTheoryApp:
             A_eq = [np.append(np.ones(n_rows), 0)]
             bounds = [(0, None)] * n_rows + [(None, None)]
             
-            if d_type == "Very Weak": bounds[target] = (0, 0)
+            if d_type == "Redundant": bounds[target] = (0, 0)
             
             res = linprog(c, A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=[1], bounds=bounds, method='highs')
             dom = res.success and res.x[-1] > (1e-7 if d_type == "Strict" else -1e-7)
@@ -215,11 +215,11 @@ class GameTheoryApp:
             
             d_A_ub, d_b_ub = [], []
             
-            # (u_i - u_target).q <= 0 (+ eps if very weak)
+            # (u_i - u_target).q <= 0 (+ eps if redundant)
             for i in range(n_rows):
-                if d_type == "Very Weak" and i == target: continue
+                if d_type == "Redundant" and i == target: continue
                 row = M[i] - u_target
-                if d_type == "Very Weak": row = np.append(row, 1)
+                if d_type == "Redundant": row = np.append(row, 1)
                 elif d_type == "Weak": row = np.append(row, 0)
                 d_A_ub.append(row)
                 d_b_ub.append(0)
@@ -235,7 +235,7 @@ class GameTheoryApp:
             if d_type != "Strict": d_A_eq[0] = np.append(d_A_eq[0], 0)
             
             d_bounds = [(0, None)] * len(d_c)
-            if d_type == "Very Weak": d_bounds[-1] = (None, None)
+            if d_type == "Redundant": d_bounds[-1] = (None, None)
             
             res_d = linprog(d_c, A_ub=d_A_ub, b_ub=d_b_ub, A_eq=d_A_eq, b_eq=[1], bounds=d_bounds, method='highs')
             if res_d.success: belief = res_d.x[:n_cols]
@@ -254,7 +254,7 @@ class GameTheoryApp:
         msgs = {
             "Strict": ("Strictly dominated", "Best response exists"),
             "Weak": ("Weakly dominated", "Full-support best response exists"),
-            "Very Weak": ("Better strategy exists elsewhere", "Unique best response exists")
+            "Redundant": ("Better strategy exists elsewhere", "Unique best response exists")
         }
         self.lbl_desc.config(bg=color, text=msgs[self.domination_type.get()][0 if dom else 1])
 
