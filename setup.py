@@ -4,12 +4,12 @@ setup(
     name="rational_choice_app",
     version="1.0.0",
     description="A Game Theory visualization tool for Pearce's Lemma",
-    author="Your Name",
     packages=find_packages(),
+    # THIS SECTION IS CRITICAL:
     install_requires=[
-        "numpy",
-        "scipy",
-        "matplotlib"
+        "numpy>=1.21.0",
+        "scipy>=1.7.0",
+        "matplotlib>=3.4.0"
     ],
     entry_points={
         'console_scripts': [
