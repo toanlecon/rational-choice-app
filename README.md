@@ -28,7 +28,7 @@ Run the following commands in your terminal to set up the environment and run th
 
 ```bash
 # 1. Download the code
-git clone [https://github.com/toanlecon/rational-choice-app.git](https://github.com/toanlecon/rational-choice-app.git)
+git clone https://github.com/toanlecon/rational-choice-app.git
 
 # 2. Go into the folder
 cd rational-choice-app
