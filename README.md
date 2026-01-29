@@ -1,5 +1,5 @@
 # rational-choice-app
-A Python GUI application demonstrating Pearce's Lemma: the duality between dominated strategies and rationalizable beliefs in game theory.
+A Python GUI application demonstrating Pearce's Lemma: the duality between dominated strategies and justifiable beliefs in game theory.
 
 # Duality of Rational Choice
 
