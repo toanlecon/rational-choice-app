@@ -3,7 +3,7 @@ A Python GUI application demonstrating Pearce's Lemma: the duality between domin
 
 # Companion Paper
 For a detailed theoretical explanation of the concepts implemented in this tool, please refer to the companion paper:  
-📄 **[Shadow Prices of Rationality (2026)](https://levokhanhtoan.com/wp-content/uploads/2026/01/shadowpricerationality2026.pdf)**
+📄 **[The shadow price of rationality (2026)](https://levokhanhtoan.com/wp-content/uploads/2026/01/shadowpricerationality2026.pdf)**
 
 # Duality of Rational Choice
 
